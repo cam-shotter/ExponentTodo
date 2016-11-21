@@ -1,16 +1,31 @@
 import Exponent from 'exponent';
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
-class App extends React.Component {
+import Tasklist from './Tasklist'
+
+class Todo extends Component {
+  constructor(props, context) {
+    super(props, context)
+    this.state = {
+      todos: [
+        {
+          task: 'Learn React Native'
+        }
+      ]
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text>Open up main.js to start working on your app!</Text>
+        <Text>Hot reloading is awesome!</Text>
+        <Tasklist/>
       </View>
     );
   }
@@ -25,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-Exponent.registerRootComponent(App);
+Exponent.registerRootComponent(Todo);
