@@ -15,6 +15,9 @@ class Todo extends Component {
       todos: [
         {
           task: 'Learn React Native'
+        },
+        {
+          task: 'Learn Redux'
         }
       ]
     }
@@ -25,7 +28,7 @@ class Todo extends Component {
       <View style={styles.container}>
         <Text>Open up main.js to start working on your app!</Text>
         <Text>Hot reloading is awesome!</Text>
-        <Tasklist/>
+        <Tasklist todos={this.state.todos}/>
       </View>
     );
   }
