@@ -25,21 +25,16 @@ class Todo extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up main.js to start working on your app!</Text>
-        <Text>Hot reloading is awesome!</Text>
+
         <Tasklist todos={this.state.todos}/>
-      </View>
+      
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
