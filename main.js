@@ -23,11 +23,17 @@ class Todo extends Component {
     }
   }
 
+  onAddStarted() {
+    console.log("Add one button fires");
+  }
+
   render() {
     return (
 
-        <Tasklist todos={this.state.todos}/>
-      
+        <Tasklist
+          onAddStarted={this.onAddStarted.bind(this)}
+          todos={this.state.todos}/>
+
     );
   }
 }

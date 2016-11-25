@@ -36,7 +36,9 @@ class Tasklist extends Component {
           renderRow={this.renderRow.bind(this)}
         />
 
-      <TouchableHighlight style={styles.button}>
+      <TouchableHighlight
+        onPress={this.props.onAddStarted}
+        style={styles.button}>
           <Text style={styles.buttonText}>
             Add One
           </Text>
@@ -47,6 +49,7 @@ class Tasklist extends Component {
 }
 
 Tasklist.propTypes = {
+  onAddStarted: React.PropTypes.func.isRequired,
   todos: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 }
 
