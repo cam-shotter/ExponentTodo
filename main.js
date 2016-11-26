@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import Tasklist from './Tasklist'
+import TaskForm from './TaskForm'
 
 class Todo extends Component {
   constructor(props, context) {
@@ -37,7 +38,7 @@ class Todo extends Component {
     switch(route.name) {
       case 'taskform':
         return (
-          <Text>Add form comes here!</Text>
+          <TaskForm/>
         )
       default:
         return (
@@ -56,7 +57,7 @@ class Todo extends Component {
     return (
       <Navigator
         configureScene={this.configureScene}
-        initialRoute={{ name: 'tasklist', index: 0 }}
+        initialRoute={{ name: 'taskform', index: 0 }}
         ref={((nav) => {
           this.nav = nav
         })}
