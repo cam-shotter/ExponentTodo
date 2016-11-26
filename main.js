@@ -2,6 +2,7 @@ import Exponent from 'exponent';
 import React, { Component } from 'react';
 import {
   StyleSheet,
+  Navigator,
   Text,
   View,
 } from 'react-native';
@@ -18,22 +19,49 @@ class Todo extends Component {
         },
         {
           task: 'Learn Redux'
+        },
+        {
+          task: 'Finish this todo app'
         }
       ]
     }
   }
 
   onAddStarted() {
-    console.log("Add one button fires");
+    this.nav.push({
+      name: 'taskform'
+    })
+  }
+
+  renderScene(route, nav) {
+    switch(route.name) {
+      case 'taskform':
+        return (
+          <Text>Add form comes here!</Text>
+        )
+      default:
+        return (
+          <Tasklist
+            onAddStarted={this.onAddStarted.bind(this)}
+            todos={this.state.todos}/>
+        )
+    }
+  }
+
+  configureScene() {
+    return Navigator.SceneConfigs.FloatFromBottom
   }
 
   render() {
     return (
-
-        <Tasklist
-          onAddStarted={this.onAddStarted.bind(this)}
-          todos={this.state.todos}/>
-
+      <Navigator
+        configureScene={this.configureScene}
+        initialRoute={{ name: 'tasklist', index: 0 }}
+        ref={((nav) => {
+          this.nav = nav
+        })}
+        renderScene={this.renderScene.bind(this)}
+      />
     );
   }
 }
