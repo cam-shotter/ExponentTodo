@@ -21,9 +21,6 @@ class Todo extends Component {
         {
           task: 'Learn Redux'
         },
-        {
-          task: 'Finish this todo app'
-        }
       ]
     }
   }
@@ -45,6 +42,10 @@ class Todo extends Component {
     this.nav.pop()
   }
 
+  onDone(task) {
+    console.log('task was completed', task);
+  }
+
   renderScene(route, nav) {
     switch(route.name) {
       case 'taskform':
@@ -57,7 +58,7 @@ class Todo extends Component {
       default:
         return (
           <Tasklist
-            onAddStarted={this.onAddStarted.bind(this)}
+            onAddStarted={this.onAddStarted.bind(this)}            onDone={this.onDone.bind(this)}
             todos={this.state.todos}/>
         )
     }
