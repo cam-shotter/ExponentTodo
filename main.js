@@ -34,11 +34,25 @@ class Todo extends Component {
     })
   }
 
+  onAdd(task) {
+    console.log('added something', task);
+    this.state.todos.push({ task })
+    this.setState({ todos: this.state.todos })
+    this.nav.pop()
+  }
+
+  onCancel() {
+    this.nav.pop()
+  }
+
   renderScene(route, nav) {
     switch(route.name) {
       case 'taskform':
         return (
-          <TaskForm/>
+          <TaskForm
+            onCancel={this.onCancel.bind(this)}
+            onAdd={this.onAdd.bind(this)}
+          />
         )
       default:
         return (
@@ -57,7 +71,7 @@ class Todo extends Component {
     return (
       <Navigator
         configureScene={this.configureScene}
-        initialRoute={{ name: 'taskform', index: 0 }}
+        initialRoute={{ name: 'tasklist', index: 0 }}
         ref={((nav) => {
           this.nav = nav
         })}
