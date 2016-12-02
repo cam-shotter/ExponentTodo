@@ -7,12 +7,18 @@ import {
 } from 'react-native';
 
 class TaskRow extends Component {
+
+  onDonePressed() {
+    this.props.onDone(this.props.todo)
+  }
+
   render() {
     return(
       <View style={styles.container}>
         <Text style={styles.label}>{this.props.todo.task}</Text>
 
       <TouchableHighlight
+        onPress={this.onDonePressed.bind(this)}
         style={styles.doneButton}
       >
         <Text>Done</Text>

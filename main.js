@@ -42,8 +42,8 @@ class Todo extends Component {
     this.nav.pop()
   }
 
-  onDone(task) {
-    console.log('task was completed', task);
+  onDone(todo) {
+    console.log('todo was completed: ', todo.task);
   }
 
   renderScene(route, nav) {
