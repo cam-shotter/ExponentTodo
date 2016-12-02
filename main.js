@@ -44,6 +44,11 @@ class Todo extends Component {
 
   onDone(todo) {
     console.log('todo was completed: ', todo.task);
+    const filteredTodos =
+      this.state.todos.filter((filterTodo) => {
+        return filterTodo !== todo;
+      })
+    this.setState({ todos: filteredTodos })
   }
 
   renderScene(route, nav) {
